@@ -1,7 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: EventBus
 metadata:
-  helm.sh/hook: post-install
   name: default
   labels:
     app: {{ .Release.Name }}-default-eventbus
