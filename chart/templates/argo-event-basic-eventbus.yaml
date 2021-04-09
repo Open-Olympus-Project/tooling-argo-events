@@ -1,7 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: EventBus
 metadata:
+  helm.sh/hook: post-install
   name: default
+  labels:
+    app: {{ .Release.Name }}-default-eventbus
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
   nats:
     native:
